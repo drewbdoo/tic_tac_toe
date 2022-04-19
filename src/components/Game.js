@@ -8,6 +8,10 @@ const styles = {
   margin: "20px auto",
 };
 
+const liStyles = {
+    color: "blue"
+}
+
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [stepNumber, setStepNumber] = useState(0);
@@ -43,8 +47,8 @@ const Game = () => {
     history.map((_step, move) => {
       const destination = move ? `go to move#${move}` : "Go to start";
       return (
-        <li key={move}>
-          <button
+        <li style={liStyles} key={move}>
+          <button className="libutt"
             style={stepNumber === move ? active : inactive}
             onClick={() => jumpTo(move)}
           >
@@ -56,6 +60,8 @@ const Game = () => {
 
   return (
     <>
+    <h1>The game everyone loves to hate</h1>
+    <h2>Tic tac toe</h2>
       <Board squares={history[stepNumber]} onClick={handleClick} />;
       <div style={styles}>
         <p>
@@ -63,7 +69,9 @@ const Game = () => {
             ? "Winner: " + winner
             : "Next Player: " + (xIsNext ? "X" : "O")}
         </p>
+        <div style={styles}>
         {renderMoves()}
+        </div>
       </div>
     </>
   );
