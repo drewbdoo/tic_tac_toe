@@ -45,7 +45,7 @@ const Game = () => {
 
   const renderMoves = () =>
     history.map((_step, move) => {
-      const destination = move ? `go to move#${move}` : "Go to start";
+      const destination = move ? `Go back to move #${move}` : "Go to start";
       return (
         <li style={liStyles} key={move}>
           <button className="libutt"
