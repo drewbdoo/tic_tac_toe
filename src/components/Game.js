@@ -50,7 +50,6 @@ const Game = () => {
           >
             {destination}
           </button>
-      
         </li>
       );
     });
@@ -64,7 +63,6 @@ const Game = () => {
             ? "Winner: " + winner
             : "Next Player: " + (xIsNext ? "X" : "O")}
         </p>
-        <p>{history}</p>
         {renderMoves()}
       </div>
     </>
