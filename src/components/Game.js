@@ -2,6 +2,7 @@ import React from "react";
 import Board from "./Board";
 import { useState } from "react";
 import { calculateWinner } from "../helpers";
+import Square from "./Square";
 
 const styles = {
   width: "200px",
@@ -28,7 +29,10 @@ const Game = () => {
     setHistory([...timeInHistory, squares]);
     setStepNumber(timeInHistory.length);
     setXIsNext(!xIsNext);
-  };
+    console.log(i);
+    
+   
+};
 
   const jumpTo = (step) => {
     setStepNumber(step);
@@ -61,17 +65,17 @@ const Game = () => {
   return (
     <>
     <h1>The game everyone loves to hate</h1>
-    <h2>Tic tac toe</h2>
+    <h2>Tic Tac Toe</h2>
       <Board squares={history[stepNumber]} onClick={handleClick} />;
       <div style={styles}>
         <p>
           {winner
-            ? "Winner: " + winner
+            ? "Winner: " + winner 
             : "Next Player: " + (xIsNext ? "X" : "O")}
         </p>
-        <div style={styles}>
+        
         {renderMoves()}
-        </div>
+        
       </div>
     </>
   );
